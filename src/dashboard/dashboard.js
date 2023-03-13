@@ -61,7 +61,7 @@ const secret = process.env.AUTH_CLIENT_SECRET;
 const port = process.env.PORT || 3000;
 
 const app = express();
-app.use(express.static("src/dashboard/static"));
+app.use(express.static("src/dashboard/static", {maxAge:"1y"}));
 
 module.exports = async (client) => {
   const dataDir = path.resolve(`${process.cwd()}${path.sep}src/dashboard`);
